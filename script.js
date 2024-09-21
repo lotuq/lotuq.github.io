@@ -7,43 +7,29 @@ function createMovingShapes() {
         shape.classList.add('shape');
         shape.style.left = `${Math.random() * 100}vw`;
         shape.style.top = `${Math.random() * 100}vh`;
-        shape.style.animationDuration = `${Math.random() * 10 + 5}s`;
-        shape.style.animationDelay = `${Math.random() * 5}s`;
+        shape.style.animationDuration = `${Math.random() * 3 + 2}s`;
         body.appendChild(shape);
     }
 }
 
-// Run the moving shapes effect when the page loads
-window.onload = function () {
-    createMovingShapes();
-};
-
-// Function for hover effect on game images
-const gameItems = document.querySelectorAll('.game-item');
-
-gameItems.forEach(item => {
-    item.addEventListener('mouseover', function () {
-        const gameName = item.querySelector('.game-name');
-        if (gameName) {
-            gameName.style.display = 'block';
-        }
+// Event listener to show game names on hover
+document.querySelectorAll('.game-item').forEach(item => {
+    item.addEventListener('mouseover', () => {
+        const gameName = document.createElement('div');
+        gameName.classList.add('game-name');
+        gameName.innerText = item.querySelector('img').alt;
+        item.appendChild(gameName);
     });
 
-    item.addEventListener('mouseout', function () {
+    item.addEventListener('mouseleave', () => {
         const gameName = item.querySelector('.game-name');
         if (gameName) {
-            gameName.style.display = 'none';
+            item.removeChild(gameName);
         }
     });
 });
 
-// Click to load hidden proxy content
-const proxyButton = document.getElementById('proxy-btn');
-const proxyContent = document.getElementById('proxy-content');
+// Call the function to create moving shapes on page load
+window.onload = createMovingShapes;
 
-if (proxyButton) {
-    proxyButton.addEventListener('click', function () {
-        proxyContent.style.display = proxyContent.style.display === 'none' ? 'block' : 'none';
-    });
-}
 
