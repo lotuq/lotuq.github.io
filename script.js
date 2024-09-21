@@ -1,35 +1,48 @@
-// Function to create a dynamic background with moving shapes
-function createMovingShapes() {
-    const body = document.body;
-    const shapeCount = 50; // Number of shapes
-    for (let i = 0; i < shapeCount; i++) {
-        const shape = document.createElement('div');
-        shape.classList.add('shape');
-        shape.style.left = `${Math.random() * 100}vw`;
-        shape.style.top = `${Math.random() * 100}vh`;
-        shape.style.animationDuration = `${Math.random() * 3 + 2}s`;
-        body.appendChild(shape);
+// js/background.js
+
+document.addEventListener('DOMContentLoaded', function () {
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    document.body.appendChild(canvas);
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const particles = [];
+
+    for (let i = 0; i < 100; i++) {
+        particles.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            radius: Math.random() * 3,
+            dx: Math.random() * 2 - 1,
+            dy: Math.random() * 2 - 1
+        });
     }
-}
 
-// Event listener to show game names on hover
-document.querySelectorAll('.game-item').forEach(item => {
-    item.addEventListener('mouseover', () => {
-        const gameName = document.createElement('div');
-        gameName.classList.add('game-name');
-        gameName.innerText = item.querySelector('img').alt;
-        item.appendChild(gameName);
-    });
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    item.addEventListener('mouseleave', () => {
-        const gameName = item.querySelector('.game-name');
-        if (gameName) {
-            item.removeChild(gameName);
-        }
+        particles.forEach(p => {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+            ctx.fillStyle = "#61dafb";
+            ctx.fill();
+
+            p.x += p.dx;
+            p.y += p.dy;
+
+            if (p.x > canvas.width || p.x < 0) p.dx = -p.dx;
+            if (p.y > canvas.height || p.y < 0) p.dy = -p.dy;
+        });
+
+        requestAnimationFrame(draw);
+    }
+
+    draw();
+
+    window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
     });
 });
-
-// Call the function to create moving shapes on page load
-window.onload = createMovingShapes;
-
-
