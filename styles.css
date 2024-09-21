@@ -1,31 +1,31 @@
-/* Apply a custom font from Google Fonts */
+/* Importing Google Fonts for a modern look */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #282c34;
-    color: white;
-    text-align: center;
-    margin: 0;
-    overflow: hidden; /* Prevent scrollbars from appearing */
+    background-color: #282c34; /* Dark background for contrast */
+    color: white; /* White text color for readability */
+    text-align: center; /* Center-align text */
+    margin: 0; /* Remove default margin */
+    overflow: hidden; /* Prevent scrollbars */
 }
 
 h1 {
-    font-size: 2.5em;
-    margin-top: 20px;
+    font-size: 2.5em; /* Large heading */
+    margin-top: 20px; /* Space above heading */
 }
 
 nav ul {
-    list-style-type: none;
-    padding: 0;
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
 }
 
 nav a {
-    margin: 10px;
-    text-decoration: none;
+    margin: 10px; /* Space between links */
+    text-decoration: none; /* Remove underline from links */
     color: #61dafb; /* Light blue color for links */
-    font-weight: bold;
-    font-size: 1.2em;
+    font-weight: bold; /* Bold font for emphasis */
+    font-size: 1.2em; /* Font size for links */
 }
 
 nav a:hover {
@@ -33,58 +33,44 @@ nav a:hover {
 }
 
 .intro {
-    margin: 20px;
-    font-size: 1.2em;
+    margin: 20px; /* Space around the intro section */
+    font-size: 1.2em; /* Slightly larger font for the intro */
 }
 
 .featured-games {
-    margin-top: 30px;
+    margin-top: 30px; /* Space above featured games section */
 }
 
 .game-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 10px;
-    padding: 20px;
+    display: grid; /* Use grid layout */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Responsive grid */
+    gap: 10px; /* Space between grid items */
+    padding: 20px; /* Padding around grid */
 }
 
 .game-item {
-    position: relative;
+    position: relative; /* Position relative for absolute positioning of text */
 }
 
 .game-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    transition: transform 0.3s; /* Smooth scaling on hover */
+    width: 100%; /* Full width for images */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Rounded corners for images */
+    transition: transform 0.3s; /* Smooth scaling effect on hover */
 }
 
 .game-item:hover img {
-    transform: scale(1.05); /* Slightly enlarge image on hover */
-}
-
-.shape {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    animation: move 10s linear infinite;
-}
-
-@keyframes move {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-100px); }
-    100% { transform: translateY(0); }
+    transform: scale(1.05); /* Scale image slightly on hover */
 }
 
 .game-name {
-    display: none;
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 5px;
-    border-radius: 5px;
+    display: none; /* Hide game names initially */
+    position: absolute; /* Absolute positioning for overlay */
+    bottom: 10px; /* Position text at the bottom */
+    left: 10px; /* Position text to the left */
+    color: white; /* White text for visibility */
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    padding: 5px; /* Padding around text */
+    border-radius: 5px; /* Rounded corners for text background */
 }
+
