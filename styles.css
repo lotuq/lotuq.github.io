@@ -1,17 +1,35 @@
+/* Apply a custom font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #282c34;
+    color: white;
     text-align: center;
+    margin: 0;
+    overflow: hidden; /* Prevent scrollbars from appearing due to shapes */
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-top: 20px;
 }
 
 nav ul {
     list-style-type: none;
+    padding: 0;
 }
 
 nav a {
     margin: 10px;
     text-decoration: none;
-    color: #333;
+    color: #61dafb; /* Light blue color for links */
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+nav a:hover {
+    text-decoration: underline; /* Underline on hover */
 }
 
 .game-grid {
@@ -29,10 +47,26 @@ nav a {
     width: 100%;
     height: auto;
     border-radius: 8px;
+    transition: transform 0.3s; /* Smooth scaling on hover */
 }
 
-.game-item:hover .game-name {
-    display: block;
+.game-item:hover img {
+    transform: scale(1.05); /* Slightly enlarge image on hover */
+}
+
+.shape {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    animation: move 10s linear infinite;
+}
+
+@keyframes move {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-100px); }
+    100% { transform: translateY(0); }
 }
 
 .game-name {
@@ -44,19 +78,4 @@ nav a {
     background-color: rgba(0, 0, 0, 0.7);
     padding: 5px;
     border-radius: 5px;
-    .shape {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: rgba(255, 0, 0, 0.5);
-    border-radius: 50%;
-    animation: move 10s linear infinite;
-}
-
-@keyframes move {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-100px); }
-    100% { transform: translateY(0); }
-}
-
 }
