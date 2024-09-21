@@ -7,7 +7,7 @@ body {
     color: white;
     text-align: center;
     margin: 0;
-    overflow: hidden; /* Prevent scrollbars from appearing due to shapes */
+    overflow: hidden; /* Prevent scrollbars from appearing */
 }
 
 h1 {
@@ -30,6 +30,15 @@ nav a {
 
 nav a:hover {
     text-decoration: underline; /* Underline on hover */
+}
+
+.intro {
+    margin: 20px;
+    font-size: 1.2em;
+}
+
+.featured-games {
+    margin-top: 30px;
 }
 
 .game-grid {
